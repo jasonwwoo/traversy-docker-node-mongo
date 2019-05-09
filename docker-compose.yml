@@ -1,15 +1,20 @@
-version: '3'
+# docker run -p 80:4000 -v $(pwd):/site jasonwwoo/docker-node-mongo
+version: "3"
 services:
   app:
     container_name: docker-node-mongo
     restart: always
     build: .
     ports:
-      - '80:3000'
+      - "80:3000"
     links:
       - mongo
   mongo:
     container_name: mongo
     image: mongo
     ports:
-      - '27017:27017'
+      - "27017:27017"
+  # jeyll:
+  #   image: bretfisher/jekyll-serve
+  #   volumes:
+  #     - .:/site
